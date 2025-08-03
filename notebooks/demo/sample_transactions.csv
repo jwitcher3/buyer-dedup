@@ -1,0 +1,8 @@
+customer_id,country,channel,sales_channel,order_date
+C001,US,eCom,Web,2023-01-01
+C001,US,eCom,Web,2023-01-03
+C002,US,eCom,Web,2023-01-01
+C003,US,Store,Retail,2023-01-02
+C003,US,Store,Retail,2023-01-05
+C004,CA,eCom,Web,2023-01-02
+C004,CA,eCom,Web,2023-01-20
