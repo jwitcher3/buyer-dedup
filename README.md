@@ -4,7 +4,7 @@ This project provides a scalable approach for accurately counting **unique buyer
 
 ## ✅ Key Features
 
-- Deduplicates buyers within `(country, channel, order_origin, month)` buckets
+- Deduplicates buyers within `(country, channel, sales_channel, month)` buckets
 - Ensures each buyer is only counted once per month
 - Provides **cumulative daily MTD counts** for true unique buyer trends
 - Designed for use with PySpark on large transactional datasets
@@ -13,7 +13,7 @@ This project provides a scalable approach for accurately counting **unique buyer
 
 - `notebooks/`: Interactive development and walkthrough of the logic
 - `src/`: Optional reusable PySpark logic for production integration
-- `docs/`: Optional deeper documentation
+- `docs/`: Extended documentation, visuals, and SQL examples
 
 ## 🛠️ Tech Stack
 
@@ -69,15 +69,49 @@ cd buyer-deduplication-mtd
 
 4. Run the notebook to generate deduplicated MTD buyer counts.
 
-## 📈 Use Cases
+---
 
-- Daily unique buyer reporting
-- Loyalty tracking and new buyer segmentation
-- MTD buyer dashboards (ECOM or Retail)
-- Support for retention and reactivation KPIs
+## 📊 Example Visualizations
+
+These visualizations demonstrate how deduplication changes your understanding of buyer activity:
+
+### 1. Total Buyer Count (Raw vs Deduplicated)
+
+Shows the difference in total buyer count over the analysis period. Deduplication prevents double-counting repeat buyers, especially critical in MTD/QTD/YTD rollups.
+
+![Total Buyer Bar Chart](docs/buyer_dedup_total_bar.png)
+
+---
+
+### 2. Daily Buyer Count Trend
+
+Raw buyer counts appear inflated as the same individuals are counted on multiple days. Deduplicated trends show true MTD acquisition activity.
+
+![Daily Buyer Trend](docs/buyer_dedup_trend_line.png)
+
+---
+
+### 3. Stacked Area View
+
+Stacked area chart comparing raw and deduplicated buyer flows over time — great for dashboards or cumulative reporting visuals.
+
+![Stacked Area Chart](docs/buyer_dedup_area_chart.png)
+
+---
+
+## 🧠 SQL Templates Included
+
+This project also includes production-ready SQL logic for buyer deduplication in different reporting periods:
+
+- `docs/sql_examples/mtd_buyer_dedup.sql` – Month-to-date logic
+- `docs/sql_examples/qtd_buyer_dedup.sql` – Quarter-to-date logic
+- `docs/sql_examples/ytd_buyer_dedup.sql` – Year-to-date logic
+- `docs/sql_examples/validation_tests.sql` – Sample QA/validation queries
+
+These are written in SQL and are adaptable to any cloud data warehouse (e.g., Databricks, Snowflake, BigQuery).
 
 ---
 
 ## 📩 Contact
 
-Created as part of an exploration into improving data accuracy in customer analytics pipelines.
+Created as part of an exploration into improving data accuracy in customer analytics pipelines. Contributions and suggestions welcome!
